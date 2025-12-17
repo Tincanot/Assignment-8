@@ -25,7 +25,7 @@ library(tidyr)
 
 #originally contained the whole path to the data.scv file
 #using read_csv2 to accommodate to separators in the data.csv file
-data_table <- read_csv2("data.csv")
+data_table <- read_csv2("https://github.com/Tincanot/Assignment-8/blob/main/data.csv")
 
 #chance to check if the table is correct
 head(data_table)
