@@ -1,5 +1,10 @@
 # Assignment 8
 
+### Creating the first table with data from data.csv
+
+Using `read_csv2` instead of `read_csv` to accomodate to convention of the data.csv file. 
+
+(European standard: column separator ";" and decimal separator ",")
 
 ```{r}
 #adding the needed libraries
@@ -15,6 +20,9 @@ data_table <- read_csv2("data.csv")
 #chance to check if the table is correct
 head(data_table)
 ```
+
+### Conversion of the table to long format
+
 ```{r}
 #conversion to long version (on which a plot can be based)
 data_long <- data_table %>%
@@ -30,6 +38,13 @@ data_long <- data_table %>%
 
 head(data_long)
 ```
+
+### Creation of the ggplot
+
+I strived to recreate a clustered column chart from my Assignment-6. 
+
+It is the least illegible version of it. 
+
 ```{r}
 #creating a ggplot (differentiating color of the column by "Position")
 ggplot(data_long, aes(x = Demographics, y = Percent, fill = Position)) +
