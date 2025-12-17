@@ -1,5 +1,7 @@
 # Assignment 8
 
+![The original vizualization](bad_visualization.webp)
+
 ### Creating the first table with data from data.csv
 
 Using `read_csv2` instead of `read_csv` to accomodate to convention of the data.csv file. 
@@ -42,6 +44,8 @@ head(data_long)
 ### Creation of the ggplot
 
 I strived to recreate a clustered column chart from my Assignment-6. 
+
+![My version of the visualization](Column_chart.png)
 
 It is the least illegible version of it. 
 
