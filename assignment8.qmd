@@ -4,7 +4,7 @@
 
 ### Creating the first table with data from data.csv
 
-Using `read_csv2` instead of `read_csv` to accomodate to convention of the data.csv file. 
+Using `read_csv2` instead of `read_csv` to accommodate to convention of the data.csv file. 
 
 (European standard: column separator ";" and decimal separator ",")
 
@@ -16,7 +16,7 @@ library(dplyr)
 library(tidyr)
 
 #originally contained the whole path to the data.scv file
-#using read_csv2 to accomodate to separators in the data.csv file
+#using read_csv2 to accommodate to separators in the data.csv file
 data_table <- read_csv2("data.csv")
 
 #chance to check if the table is correct
