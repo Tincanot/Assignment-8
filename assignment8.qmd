@@ -1,3 +1,11 @@
+---
+title: "Assignment 8"
+author:
+  name: Natalia
+  date: 12.17.2025
+format: html
+---
+
 # Assignment 8
 
 ![The original vizualization](bad_visualization.webp)
