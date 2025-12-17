@@ -1,1 +1,46 @@
+# Assignment 8
+
+
+```{r}
+#adding the needed libraries
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+
+#originally contained the whole path to the data.scv file
+#using read_csv2 to accomodate to separators in the data.csv file
+data_table <- read_csv2("data.csv")
+
+#chance to check if the table is correct
+head(data_table)
+```
+```{r}
+#conversion to long version (on which a plot can be based)
+data_long <- data_table %>%
+  pivot_longer(
+    #all column without "Demographics"
+    cols = -Demographics,
+    #creating the "Position" category
+    names_to = "Position",
+    values_to = "Percent"
+  ) %>%
+  #calculating the data so it can be shown as percents
+  mutate(Percent = Percent * 100)
+
+head(data_long)
+```
+```{r}
+#creating a ggplot (differentiating color of the column by "Position")
+ggplot(data_long, aes(x = Demographics, y = Percent, fill = Position)) +
+  #creating a clustered column chart
+  geom_col(position = "dodge") +
+  #adding cosmetics (additional texts)
+  geom_text(aes(label = Percent), 
+            position = position_dodge(width = 0.9), 
+            vjust = -0.5) +
+  #addition for easier visuals
+  theme_minimal()
+  
+```
 
