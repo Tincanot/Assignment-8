@@ -4,6 +4,10 @@ author:
   name: Natalia
   date: 12.17.2025
 format: html
+execute:
+  echo: true
+  warning: false
+  message: false
 ---
 
 # Assignment 8
