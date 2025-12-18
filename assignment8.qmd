@@ -12,10 +12,6 @@ format: html
 
 ### Creating the first table with data from data.csv
 
-Using `read_csv2` instead of `read_csv` to accommodate to convention of the data.csv file. 
-
-(European standard: column separator ";" and decimal separator ",")
-
 ```{r}
 #adding the needed libraries
 library(readr)
@@ -23,9 +19,22 @@ library(ggplot2)
 library(dplyr)
 library(tidyr)
 
-#originally contained the whole path to the data.scv file
-#using read_csv2 to accommodate to separators in the data.csv file
-data_table <- read_csv2("https://github.com/Tincanot/Assignment-8/blob/main/data.csv")
+#inserting the contents of data.scv into a table
+data_table <- read.table(
+  text = "
+  Demographics;Israel;Palestine;Both;Neither
+  Registered Voters;0,291;0,214;0,197;0,298
+  Republicans;0,471;0,126;0,149;0,254
+  Democrats;0,171;0,319;0,213;0,297
+  Independents;0,201;0,201;0,238;0,36
+  Republicans  18-29;0,279;0,334;0,135;0,252
+  America First  25-29;0,245;0,408;0,041;0,306",
+  sep = ";",
+  dec = ",",
+  #the first verse contains the names of the colums
+  header = TRUE,
+  #string must be a char type
+  stringsAsFactors = FALSE)
 
 #chance to check if the table is correct
 head(data_table)
