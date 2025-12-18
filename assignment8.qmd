@@ -8,7 +8,7 @@ format: html
 
 # Assignment 8
 
-![The original vizualization](bad_visualization.webp)
+## American voter sympathies in the Israeli–Palestinian conflict.
 
 ### Creating the first table with data from data.csv
 
@@ -61,8 +61,6 @@ head(data_long)
 ### Creation of the ggplot
 
 I strived to recreate a clustered column chart from my Assignment-6. 
-
-![My version of the visualization](Column_chart.png)
 
 It is the least illegible version of it. 
 
