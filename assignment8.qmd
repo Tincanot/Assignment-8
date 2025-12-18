@@ -67,16 +67,32 @@ I strived to recreate a clustered column chart from my Assignment-6.
 It is the least illegible version of it. 
 
 ```{r}
+#added to control the order of Positions
+data_long$Position <- factor(data_long$Position, 
+                             levels = c("Israel", "Palestine", "Both", "Neither"))
+
 #creating a ggplot (differentiating color of the column by "Position")
 ggplot(data_long, aes(x = Demographics, y = Percent, fill = Position)) +
   #creating a clustered column chart
-  geom_col(position = "dodge") +
-  #adding cosmetics (additional texts)
-  geom_text(aes(label = Percent), 
-            position = position_dodge(width = 0.9), 
-            vjust = -0.5) +
+  geom_col(position = position_dodge(width = 0.8), width = 0.7) +
+  #adding cosmetics
+  #additional texts over the columns
+  geom_text(aes(label = paste0(Percent, "%")), 
+            position = position_dodge(width = 0.8), 
+            vjust = -0.5,
+            size = 3) +
+  #changing the colours of the columns according to the "Position"
+  scale_fill_manual(values = c("Israel" = "#1874CD",
+                               "Palestine" = "#CD2626",
+                               "Both" = "#9F79EE",
+                               "Neither" = "#CDC9C9" )) +
+  #adding the title
+  labs(title = "American voter sympathies in the Israeli–Palestinian conflict.",
+       x = "",
+       y = "") +
   #addition for easier visuals
-  theme_minimal()
-  
+  theme_minimal() +
+  #adjusting the column group descriptions
+  theme(axis.text.x = element_text(angle = -45, vjust = -1))
 ```
 
